@@ -1,7 +1,7 @@
 
 # Ejercicio 2
-#from TP_01_FUNC import cambio_diario 
-import TP_01_FUNC
+from TP_01_FUNC import cambio_diario 
+
 
 x0 = 100
 
@@ -18,7 +18,7 @@ while True:
     y0 = beta * 0.9 
     x0+=1
     
-    TP_01_FUNC.cambio_diario(y0)
+    cambio_diario(dias,gama,alfa,beta,y0,x0)
           
     if y0 <= 0:
         break

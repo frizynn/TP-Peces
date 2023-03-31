@@ -1,6 +1,13 @@
-# Ejercicio 1 🤪😏😎
+# Ejercicio 1 
 
-# La función chequear() utiliza un ciclo while para pedir al usuario que ingrese un valor, y luego comprueba si es un número real mayor o igual a cero. Si no lo es, el ciclo se repite hasta que se obtenga un valor válido.
+#y0 - Cantidad de peces,
+#x0 - Cantidad de pesca diaria.
+#alfa - Tasa de reproducción de los peces
+#beta - Capacidad del lago (para contener a la población de peces)
+#gama - Proporción de peces que son comidos por otros depredadores en el lago
+#dias- #Cantidad de días
+
+
 def chequear(var):
     """
     La función sirve para chequear los valores que posteriormente se le van a pasar. Si es algo distinto a un número real, se volverá a ejecutar hasta que se obtenga lo que se pide.
@@ -16,16 +23,6 @@ def chequear(var):
                 print("Error: no se aceptan números negativos.")
         except:
             print("Error: valor inválido.")
-
-#y0 - Cantidad de peces,
-#x0 - Cantidad de pesca diaria.
-#alfa - Tasa de reproducción de los peces
-#beta - Capacidad del lago (para contener a la población de peces)
-#gama - Proporción de peces que son comidos por otros depredadores en el lago
-#dias- #Cantidad de días
-
-
-print(f"Tabla de valores:\n  t_i    |  y_i \n  -------+--------")   # tabla de valores para y0 = 0
 
 def cambio_diario(dias,gama,alfa,beta,y0,x0): 
     """ 
@@ -57,11 +54,9 @@ Devuelve:
             tabla.append(f" {i:3d}     | {int(y0):5d} ")
     return tabla
 
-"""cambio = cambio_diario(dias,gama,alfa,beta,y0,x0)
-for c in cambio:
-    print(c)"""
 
 def main():
+    """Esta función es la principal del codigo y es un "rejunte" de las demás. Le solicita al usuario que ingrese valores para los parámetros y0, x0, alfa, beta, gama y N. Asegura que beta no sea mayor que 50000. Luego llama a la función cambio_diario para calcular los valores de población para cada día y los imprime en la consola en forma de tabla."""
     y0 = chequear("Ingrese y0: ")
     x0 = chequear("Ingrese x: ")
     alfa = chequear("Ingrese alfa: ")
@@ -71,7 +66,8 @@ def main():
         beta = chequear("Ingrese beta: ")
     gama = chequear("Ingrese gama: ")
     dias = int(chequear("Ingrese N: "))
-
+    
+    print(f"Tabla de valores:\n  t_i    |  y_i \n  -------+--------")   # tabla de valores para y0 = 0
     cambio = cambio_diario(dias,gama,alfa,beta,y0,x0) 
     for c in cambio:
         print(c) #se itera sobre la lista "cambio" e imprime cada elemento en la consola.
