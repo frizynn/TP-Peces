@@ -57,10 +57,10 @@ Devuelve:
 
 def main():
     """Esta función es la principal del codigo y es un "rejunte" de las demás. Le solicita al usuario que ingrese valores para los parámetros y0, x0, alfa, beta, gama y N. Asegura que beta no sea mayor que 50000. Luego llama a la función cambio_diario para calcular los valores de población para cada día y los imprime en la consola en forma de tabla."""
-    y0 = chequear("Ingrese y0: ")
-    x0 = chequear("Ingrese x: ")
+    y0 = int(chequear("Ingrese y0: "))
+    x0 = int(chequear("Ingrese x: "))
     alfa = chequear("Ingrese alfa: ")
-    beta = chequear("Ingrese beta: ")
+    beta = int(chequear("Ingrese beta: "))
     while beta > 50000:
         print("El valor de beta no puede ser mayor a 50000.")
         beta = chequear("Ingrese beta: ")
