@@ -38,11 +38,11 @@ Argumentos:
 - x0: un número entero que representa la cantidad de pesca.
     
 Devuelve:
-- Una lista con la tabla de valores de población para cada día. La lista posteriormente sera "descomprimida" de manera vertical, ya que los valores se almacenan de izquierda a derecha. 
+- Una lista con la tabla de valores de población para cada día. La lista posteriormente se va a descomprimir de manera vertical, ya que los valores se almacenan de izquierda a derecha. 
     """
     tabla = []
-    for i in range(0,dias+1): 
-        y_day2 = alfa * y0 * (beta-y0) - (gama *y0) - x0  # Se calcula el cambio diario de la población de pecesy0>=beta:
+    for i in range(dias+1): 
+        y_day2 = alfa * y0 * (beta-y0) - (gama *y0) - x0  # Se calcula el cambio diario de la población de peces
         y0 += y_day2 # Se asigna la población nueva al cambio diario de la poblacion        
         if y0 <0: 
             y0 = 0
@@ -71,7 +71,7 @@ def main():
     print(f"Tabla de valores:\n  t_i    |  y_i \n  -------+--------")   # tabla de valores para y0 = 0
     cambio = cambio_diario(dias,gama,alfa,beta,y0,x0) 
     for c in cambio:
-        print(c) #se itera sobre la lista "cambio" e imprime cada elemento en la consola.
+        print(c) # Se itera sobre la lista "cambio" e imprime cada elemento en la consola.
 
 if __name__ == "__main__":
     main()
