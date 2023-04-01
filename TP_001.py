@@ -16,9 +16,10 @@ def chequear(var):
     """
     while True:
         try:
-            valor = float(input(var))
-            if valor >= 0:
-                return valor
+            var = float(input(var))
+            
+            if var >= 0:
+                return var
             else:
                 print("Error: no se aceptan números negativos.")
         except:
@@ -62,7 +63,7 @@ def main():
     alfa = chequear("Ingrese alfa: ")
     beta = int(chequear("Ingrese beta: "))
     while beta > 50000:
-        print("El valor de beta no puede ser mayor a 50000.")
+        print("El valor de beta no puede ser mayor a 50000.") #Se hace esto ya que la capacidad máxima del Lago es 50000
         beta = chequear("Ingrese beta: ")
     gama = chequear("Ingrese gama: ")
     dias = int(chequear("Ingrese N: "))
