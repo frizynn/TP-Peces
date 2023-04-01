@@ -30,7 +30,7 @@ def chequear(var_name, es_entero=True):
 
 def pedir_valores():
     """ 
-    La función pedir_valores pide al usuario los valores de x0, y0, alfa, beta, gama y dias, y se asegura que sean válidos.
+    Pide al usuario los valores de x0, y0, alfa, beta, gama y dias, y se asegura que sean válidos.
     
     Devuelve:
     - Una tupla con los valores ingresados, en el siguiente orden: x0, y0, alfa, beta, gama, dias.
@@ -48,6 +48,18 @@ def pedir_valores():
     return x0, y0, alfa, beta, gama, dias
 
 def poblacion_siguiente(x0, y0, alfa, beta, gama):
+    """
+    La función calcula el cambio diario de la poblacion de peces.
+    Argumentos:
+    - dias: Días para los que se quiere calcular el cambio diario de la población de peces.
+    - gama: Tasa de mortalidad de los peces.
+    - alfa: Tasa de reproducción de los peces.
+    - beta: Capacidad máxima del lago.
+    - y0: Población inicial de peces.
+    - x0: Cantidad de pesca.
+    Devuelve:
+    - El cambio diario de la póblación de peces.
+    """
     y_day2 = alfa * y0 * (beta - y0) - gama * y0 - x0
     return y_day2
 
@@ -93,7 +105,7 @@ if __name__ == "__main__":
     main()
 
 
-"""
+""" 
 
 ░██████╗░██████╗░░█████╗░███╗░░██╗██████╗░███████╗  ░██████╗░██╗░░░██╗██╗██╗░░░░░██╗░░░░░███████╗
 ██╔════╝░██╔══██╗██╔══██╗████╗░██║██╔══██╗██╔════╝  ██╔════╝░██║░░░██║██║██║░░░░░██║░░░░░██╔════╝

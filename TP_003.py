@@ -3,7 +3,7 @@ from TP_001 import poblacion_siguiente
 
 def poblacion_minima(x0, dias, alfa, beta, gama, y0):
     """
-    Calcula la población mínima viable de peces en un lago para poder asegurar la supervivencia a largo plazo. 
+    Calcula la población mínima viable de peces. 
     Argumentos:
     - x0: Pesca diaria.
     - dias: Días a simular.
@@ -30,7 +30,7 @@ def poblacion_minima(x0, dias, alfa, beta, gama, y0):
         if y_day2 <0:
             break
         
-    return y0+1 #Cabe destacar que el codigo sigue estrictamente la consigna. Solo es valido para las variables previstas, ya que por ejemplo, si 124<=y0<=23143, el código no funcionaria correctamente y devolveria un resultado el cual no es. 
+    return y0+1 #Cabe destacar que el codigo sigue estrictamente la consigna. Solo es valido para las variables previstas, ya que, por ejemplo, si 124<=y0<=23143, el código no funcionaria correctamente y devolveria un resultado el cual no es correcto. 
 
 def main():
     
@@ -46,3 +46,4 @@ def main():
 
 if __name__=='__main__':
     main()
+
