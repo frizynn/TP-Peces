@@ -47,28 +47,33 @@ def pedir_valores():
     
     return x0, y0, alfa, beta, gama, dias
 
+def poblacion_siguiente(x0, y0, alfa, beta, gama):
+    y_day2 = alfa * y0 * (beta - y0) - gama * y0 - x0
+    return y_day2
+
 def cambio_diario(dias,gama,alfa,beta,y0,x0): 
     """ 
 La función cambio_diario calcula el cambio diario de una población de peces a lo largo de varios días, utilizando los valores de y0 (población inicial), alfa, beta, gama, y x0. Devuelve una tabla con los valores de población para cada día.
     
 Argumentos:
-- dias: un entero que representa el número de días para los que se quiere calcular el cambio diario de la población de peces.
-- gama: un número real que representa la tasa de mortalidad de los peces.
-- alfa: un número real que representa la tasa de reproducción de los peces.
-- beta: un número entero que representa la capacidad máxima de la población de peces.
-- y0: un número entero que representa la población inicial de peces.
-- x0: un número entero que representa la cantidad de pesca.
+- dias: Días para los que se quiere calcular el cambio diario de la población de peces.
+- gama: Tasa de mortalidad de los peces.
+- alfa: Tasa de reproducción de los peces.
+- beta: Capacidad máxima del lago.
+- y0: Población inicial de peces.
+- x0: Cantidad de pesca.
     
 Devuelve:
-- Una lista con la tabla de valores de población para cada día. La lista posteriormente se va a descomprimir de manera vertical, ya que los valores se almacenan de izquierda a derecha. 
+- Una lista con la tabla de valores de población para cada día.  
     """
     tabla = []
     poblacion_inicial = y0
     tabla.append(f" {0:3d}     | {int(poblacion_inicial):5d} ")
     
     for i in range(1, dias+1): 
-        y_day2 = alfa * y0 * (beta-y0) - (gama *y0) - x0  # Se calcula el cambio diario de la población de peces
-        y0 += y_day2 # Se asigna la población nueva al cambio diario de la poblacion        
+        y_day2 = poblacion_siguiente(x0, y0, alfa, beta, gama)
+        y0+=y_day2  # Se calcula el cambio diario de la población de peces
+         # Se asigna la población nueva al cambio diario de la poblacion        
         if y0 <0: 
             y0 = 0
         elif y0 > beta:
@@ -77,15 +82,23 @@ Devuelve:
         tabla.append(f" {i:3d}     | {int(y0):5d} ")
     return tabla
 
-
-
 def main():
-    """Esta función es la principal del codigo y es un "rejunte" de las demás. Le solicita al usuario que ingrese valores para los parámetros y0, x0, alfa, beta, gama y N. Asegura que beta no sea mayor que 50000. Luego llama a la función cambio_diario para calcular los valores de población para cada día y los imprime en la consola en forma de tabla."""
     x0, y0, alfa, beta, gama, dias = pedir_valores()
-    print(f"Tabla de valores:\n  t_i    |  y_i \n  -------+--------")   # tabla de valores para y0 = 0
+    print(f"Tabla de valores:\n  t_i    |  y_i \n  -------+--------")   
     cambio = cambio_diario(dias,gama,alfa,beta,y0,x0) 
     for c in cambio:
-        print(c) # Se itera sobre la lista "cambio" e imprime cada elemento en la consola.
+        print(c) # Se itera sobre la lista "cambio" e imprime cada elemento de la lista 'tabla' en la consola.
 
 if __name__ == "__main__":
     main()
+
+
+"""
+
+░██████╗░██████╗░░█████╗░███╗░░██╗██████╗░███████╗  ░██████╗░██╗░░░██╗██╗██╗░░░░░██╗░░░░░███████╗
+██╔════╝░██╔══██╗██╔══██╗████╗░██║██╔══██╗██╔════╝  ██╔════╝░██║░░░██║██║██║░░░░░██║░░░░░██╔════╝
+██║░░██╗░██████╔╝███████║██╔██╗██║██║░░██║█████╗░░  ██║░░██╗░██║░░░██║██║██║░░░░░██║░░░░░█████╗░░
+██║░░╚██╗██╔══██╗██╔══██║██║╚████║██║░░██║██╔══╝░░  ██║░░╚██╗██║░░░██║██║██║░░░░░██║░░░░░██╔══╝░░
+╚██████╔╝██║░░██║██║░░██║██║░╚███║██████╔╝███████╗  ╚██████╔╝╚██████╔╝██║███████╗███████╗███████╗
+░╚═════╝░╚═╝░░╚═╝╚═╝░░╚═╝╚═╝░░╚══╝╚═════╝░╚══════╝  ░╚═════╝░░╚═════╝░╚═╝╚══════╝╚══════╝╚══════╝
+"""
