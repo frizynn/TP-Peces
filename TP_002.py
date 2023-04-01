@@ -2,7 +2,7 @@ from TP_001 import poblacion_siguiente
 
 def calcular_poblacion_peces(y0, alfa, beta, gama, x0, dias):
     """
-    Calcula la población de peces en función de la cantidad de pesca diaria durante un número determinado de días (es decir, calcula la población de peces utilizando un bucle for).
+    Calcula la población de peces en función de la cantidad de pesca diaria durante un número determinado de días.
     Se verifica si la población de peces es mayor que 0 después de los 90 días de pesca. Si la población es mayor que 0, la función devuelve True y el valor de la población de peces. Si la población es menor o igual a 0, la función devuelve False y la cantidad máxima de pesca diaria que se puede realizar sin llevar a la extinción de los peces.
     Argumentos:
     - y0: Población inicial de peces.
@@ -29,7 +29,7 @@ def calcular_poblacion_peces(y0, alfa, beta, gama, x0, dias):
 
 def max_pesca():
     """
-    Busca la cantidad máxima de pesca diaria sin llevar a la extinción de los peces. Se va a llamar a 'calcular_poblacion_peces()' y se va a hacer el cálculo hasta que de 0. Por cada iteración que no de 0, se suma 1 a la pesca diaria y se vuelve a ejecutar la funcion utilizando ese x0 por 90 dias. Si de vuelta no es 0, se suma 1 a x0 y así sucesivamente. A exito se le asigna el bool y a poblacion_final el resultado de calcular_poblacion_peces(). 
+    Busca la cantidad máxima de pesca diaria sin que se extingan los peces. Se va a llamar a 'calcular_poblacion_peces()' y se va a hacer el cálculo hasta que de 0. Por cada iteración que no de 0, se suma 1 a la pesca diaria y se vuelve a ejecutar la funcion utilizando ese x0 por 90 dias. Si de vuelta no es 0, se suma 1 a x0 y así sucesivamente. A 'exito' se le asigna un bool y a poblacion_final el resultado de calcular_poblacion_peces(). 
 
     Devuelve:
     - La cantidad máxima de pesca diaria que se puede realizar sin llevar a la extinción de los peces.
