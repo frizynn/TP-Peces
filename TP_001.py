@@ -78,7 +78,7 @@ Devuelve:
             y0 = 0
         elif y0 > beta:
             y0 = beta
-            
+        print(y0)
         tabla.append(f" {i:3d}     | {int(y0):5d} ")
     return tabla
 
