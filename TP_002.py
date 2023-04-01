@@ -1,5 +1,6 @@
-# Definición de los valores iniciales
-x0 = 100 # Cantidad de pesca diaria inicial
+# Ejercicio 2
+
+x0 = 0 # Cantidad de pesca diaria inicial
 alfa = 0.000082 # Coeficiente alfa para el cálculo de la población de peces
 beta = 24487 # Capacidad máxima de la población de peces
 gama = 0.1 # Tasa de mortalidad diaria de los peces
